@@ -46,6 +46,8 @@ pico_set_program_version(frequency_analyser "0.1")
 pico_enable_stdio_uart(frequency_analyser 1)
 pico_enable_stdio_usb(frequency_analyser 0)
 
+# Add the standard include files to the build
+
 # Add the standard library to the build
 target_link_libraries(frequency_analyser
         pico_stdlib
@@ -54,11 +56,12 @@ target_link_libraries(frequency_analyser
         device_ssd1306
         utilities_probe
         sw_widget
+        device_ky040
+        sw_widget_square_led
         )
 
-# Add the standard include files to the build
 target_include_directories(frequency_analyser PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
-)
+        )
 
 
